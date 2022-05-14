@@ -5,7 +5,7 @@ const userController  = (url , router) => {
     console.log(url);
     router.post( `${url}/login`, (req, res) => {
         userService.login(req.body).then( profil => response.success(res, profil, 'Logged in successfully'))
-        .catch(error => response.error(res, "Login failed"));
+        .catch(error => console.log(error));
     });
 
     router.post(`${url}/register`, (req, res) => {
