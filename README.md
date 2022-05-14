@@ -10,3 +10,9 @@ npm install express nodemon mongoose --save
 
 # bodyparser: lib pour la gestion des routes
 npm install body-parser --save
+
+# lib that load configuration from .env file
+npm install dotenv --save
+
+# encryptage mdp
+npm install bcrypt --save
