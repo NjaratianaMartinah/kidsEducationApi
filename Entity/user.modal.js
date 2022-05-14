@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const UserSchema = new Schema({
     id:{
         type: String,
-        required: true
+        required: false
     },
     username:{
         type: String,
@@ -23,7 +23,7 @@ UserSchema.set('toJSON', {
         delete returnedObject.__v
         //do not reveal passwordHash
         delete returnedObject.password
-    }
+    } 
 })
 
  const User = mongoose.model("user", UserSchema);

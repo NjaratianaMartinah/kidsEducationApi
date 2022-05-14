@@ -1,7 +1,8 @@
-const { USER , UserSchema } = require('../Entity/user.modal');
+const { User , UserSchema } = require('../Entity/user.modal');
+const bcrypt = require('bcrypt');
 
 async function login( {userName, password} ){
-    const user = await USER.findOne({userName});
+    const user = await user.findOne({userName});
     console.log(user);
 }
 
@@ -10,6 +11,8 @@ async function register(params){
     const salt = bcrypt.genSaltSync(10);
     params.password = bcrypt.hashSync(password, salt);
     params.state = 1;
-    const profil = new Profil(params)
-    await profil.save();
+    const user = new User(params);
+    await user.save();
 }
+
+module.exports = { login , register };
