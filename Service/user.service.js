@@ -1,9 +1,8 @@
 const { User , UserSchema } = require('../Entity/user.modal');
 const bcrypt = require('bcrypt');
 
-async function login( {userName, password} ){
-    const user = await User.findOne({userName});
-    console.log(user);
+async function login( {username, password} ){
+    const user = await User.findOne({username});
     if(bcrypt.compareSync(password, user.password)){
         return {...user.toJSON()}
     }
