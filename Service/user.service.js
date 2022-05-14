@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt');
 async function login( {userName, password} ){
     const user = await user.findOne({userName});
     console.log(user);
+    if(bcrypt.compareSync(password, profil.password)){
+        return {...profil.toJSON()}
+    }
 }
 
 async function register(params){
