@@ -1,39 +1,38 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const UserSchema = new Schema({
+const LessonSchema = new Schema({
     id:{
         type: String,
         required: false
     },
-    username:{
+    title:{
         type: String,
         required: true
     },
-    password:{
+    description:{
         type: String,
         required: true
     },
-    age:{
-        type: Number,
+    category:{
+        type: String,
         required: true
     },
-    email:{
+    type:{
         type: String,
         required: true
     }
-})
+});
 
-UserSchema.set('toJSON', {
+
+LessonSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject._id
         delete returnedObject.__v
-        //do not reveal passwordHash
-        delete returnedObject.password
     } 
 })
 
- const User = mongoose.model("user", UserSchema);
+const Lesson = mongoose.model("lesson", LessonSchema);
 
- module.exports = { User , UserSchema };
+module.exports = { Lesson , LessonSchema };
