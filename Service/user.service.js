@@ -7,6 +7,7 @@ async function login( {username, password} ){
     if(bcrypt.compareSync(password, user.password)){
         return {...user.toJSON()}
     }
+    throw new Error("Incorrect Email or Password");
 }
 
 async function register(params){
