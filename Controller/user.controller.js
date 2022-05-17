@@ -10,8 +10,8 @@ const userController  = (url , router) => {
 
     router.post(`${url}/register`, (req, res) => {
         console.log("register");
-        userService.register(req.body).then( () => { response.success(res, null, "registration finished")})
-        .catch(err => response.error(res, " An error occured during the registration"));
+        userService.register(req.body).then( user => {console.log(user) ; response.success(res, user, "registration finished")})
+        .catch(err =>  { console.log(err); response.error(res, " An error occured during the registration")});
     })
 }
 
