@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { required } = require("nodemon/lib/config");
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
@@ -20,6 +21,10 @@ const UserSchema = new Schema({
     },
     email:{
         type: String,
+        required: true
+    },
+    gender:{
+        type: Number,
         required: true
     }
 })
