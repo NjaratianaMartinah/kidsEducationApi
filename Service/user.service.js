@@ -2,10 +2,12 @@ const { User , UserSchema } = require('../Entity/user.modal');
 const bcrypt = require('bcrypt');
 
 async function login( {username, password} ){
+    console.log("login service");
     const user = await User.findOne({username});
     if(bcrypt.compareSync(password, user.password)){
         return {...user.toJSON()}
     }
+    throw new Error("Incorrect Email or Password");
 }
 
 async function register(params){
@@ -13,8 +15,10 @@ async function register(params){
     const salt = bcrypt.genSaltSync(10);
     params.password = bcrypt.hashSync(password, salt);
     params.state = 1;
-    const user = new User(params);
-    await user.save();
+    var user = new User(params);
+    user = await user.save();
+    user.password = password;
+    return login(user);
 }
 
 module.exports = { login , register };
