@@ -6,7 +6,7 @@
 npm init
 
 # Installation express : gestion de route, nodemon: hot reload, mongoose: orm mongodb
-npm install express nodemon mongoose --save
+npm install express mongoose --save
 
 # bodyparser: lib pour la gestion des routes
 npm install body-parser --save
@@ -16,3 +16,5 @@ npm install dotenv --save
 
 # encryptage mdp
 npm install bcrypt --save
+
+npm install nodemon -g
