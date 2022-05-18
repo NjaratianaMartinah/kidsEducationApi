@@ -1,0 +1,13 @@
+use kidsEduc;
+
+db.lessons.insertOne(
+	{
+		"title":"Lesson 1",
+		"descritpion": "Description lesson 1",
+		"category": "Number",
+		"type": "image",
+		"content":"Ceci est une image"
+	}
+);
+
+db.lessons.find({});

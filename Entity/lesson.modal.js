@@ -6,8 +6,7 @@ const LessonSchema = new Schema({
         type: String,
         required: false
     },
-    fr:{
-        title:{
+    title:{
             type: String,
             required: true
         },
@@ -19,21 +18,6 @@ const LessonSchema = new Schema({
             type: String,
             required: true
         },
-    },
-    eng:{
-        title:{
-            type: String,
-            required: true
-        },
-        description:{
-            type: String,
-            required: true
-        },
-        category:{
-            type: String,
-            required: true
-        },
-    },
     type:{
         type: String,
         required: true
