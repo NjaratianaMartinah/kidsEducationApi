@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const userController = require("./Controller/user.controller");
+const lessonController = require("./Controller/lesson.controller");
 
 app.use(express.json());
 
@@ -22,6 +23,7 @@ async function startApplication(){
     console.log("start application");
     app.listen(process.env.PORT || 8080);
     userController("/api/user", app);
+    lessonController("/api/lessons", app);
 }
 
 module.exports = {startApplication, app};
