@@ -4,10 +4,6 @@ const response = require("../Helper/response.helper");
 const userController  = (url , router) => {
     console.log(url);
 
-    router.get(`${url}`, (req, res) => {
-        response.success(res, null, "Message ok");
-    });
-
     router.post( `${url}/login`, (req, res) => {
         userService.login(req.body).then( profil => response.success(res, profil, 'Logged in successfully'))
         .catch(error => { console.log(error) ; response.error(res, "invalid user name or password")} );
