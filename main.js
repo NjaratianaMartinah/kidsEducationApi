@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const app = express();
 const userController = require("./Controller/user.controller");
 const lessonController = require("./Controller/lesson.controller");
-
+require("dotenv").config();
 app.use(express.json());
 
 
 // Initialisation connection bd
-const uri = "mongodb://localhost:27017/kidsEducation";
+const uri = process.env.MONGO_URI;
 console.log(uri);
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
